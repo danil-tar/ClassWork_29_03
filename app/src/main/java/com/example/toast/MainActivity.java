@@ -16,20 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        @SuppressLint("ShowToast") Snackbar snackbar
-                = Snackbar.make(findViewById(R.id.button), "Hello World", Snackbar.LENGTH_SHORT);
-        snackbar.setAction("Ok", new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Snackbar Ok Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                snackbar.show();
+                MyDialog myDialog = new MyDialog();
+                myDialog.show(getSupportFragmentManager(), "MyDialog");
 
             }
         });
